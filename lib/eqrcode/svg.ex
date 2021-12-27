@@ -101,11 +101,11 @@ defmodule EQRCode.SVG do
     |> Enum.to_list()
   end
 
-  defp substitute(data, row_num, col_num, %{})
+  defp substitute(data, row_num, col_num, %{background_color: background_color})
        when is_nil(data) or data == 0 do
     %{}
     |> Map.put(:height, 1)
-    |> Map.put(:style, "fill: transparent;")
+    |> Map.put(:style, "fill:#{background_color};")
     |> Map.put(:width, 1)
     |> Map.put(:x, col_num)
     |> Map.put(:y, row_num)
